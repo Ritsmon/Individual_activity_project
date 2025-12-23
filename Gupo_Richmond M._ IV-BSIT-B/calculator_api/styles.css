@@ -1,0 +1,131 @@
+*{
+    box-sizing: border-box;
+}
+
+/* Center the calculator */
+body{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f2f2f2;
+    font-family: "Courier New", monospace; /* Updated font */
+}
+
+/* Calculator container */
+#calculator{
+    position: relative;
+    font-family: "Courier New", monospace; /* Updated font */
+    background-color: #1e1e1e;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 360px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+
+/* 🔥 Animated glowing side border */
+#calculator::before{
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: 22px;
+    background: linear-gradient(
+        90deg,
+        #ff9f0a,
+        #ffaa33,
+        #ff9f0a
+    );
+    background-size: 300% 300%;
+    animation: glowMove 5s linear infinite;
+    filter: blur(10px);
+    opacity: 0.75;
+    z-index: -1;
+}
+
+@keyframes glowMove{
+    0%{ background-position: 0% 50%; }
+    100%{ background-position: 300% 50%; }
+}
+
+/* Display */
+#display{
+    width: 100%;
+    padding: 25px 20px;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    text-align: right;
+    border: none;
+    outline: none;
+    background-color: #2a2a2a;
+    color: #ffffff;
+}
+
+/* Button grid */
+#keys{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    padding: 20px;
+}
+
+/* Buttons */
+button{
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: none;
+    background-color: #3a3a3a;
+    color: white;
+    font-size: 1.7rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        transform 0.1s ease,
+        box-shadow 0.1s ease;
+}
+
+/* Hover & click feedback */
+button:hover{
+    background-color: #4a4a4a;
+    box-shadow: 0 0 8px rgba(255,255,255,0.2);
+}
+
+button:active{
+    transform: scale(0.94);
+    background-color: #5a5a5a;
+}
+
+/* Keyboard accessibility */
+button:focus-visible{
+    outline: 3px solid #ffaa33;
+}
+
+/* Operator buttons */
+.operator-btn{
+    background-color: #ff9f0a;
+    color: white; /* Make symbols visible */
+}
+
+.operator-btn:hover{
+    background-color: #ffb347;
+    box-shadow: 0 0 10px rgba(255,159,10,0.6);
+}
+
+.operator-btn:active{
+    background-color: #ffc266;
+}
+
+/* ➕ PLUS button (yellow) */
+#keys button:nth-child(16){
+    background-color: #ff9f0a;
+    color: white; /* FIX: visible text */
+}
+
+#keys button:nth-child(16):hover{
+    background-color: #ffb347;
+}
+
+#keys button:nth-child(16):active{
+    background-color: #ffc266;
+}

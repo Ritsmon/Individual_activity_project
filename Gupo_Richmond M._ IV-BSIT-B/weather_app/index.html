@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Weather Form (input + button side-by-side) -->
+    <form class="weatherForm" id="weatherForm">
+        <input type="text" class="cityInput" id="cityInput" placeholder="Enter city">
+        <button type="submit" id="getWeatherBtn">Get Weather</button>
+    </form>
+
+    <!-- Weather Card (initially hidden) -->
+    <div class="card" id="weatherCard" style="display: none;">
+        <div class="cityDisplay" id="cityDisplay">City Name</div>
+        <div class="tempDisplay" id="tempDisplay">25°C</div>
+        <div class="humidityDisplay" id="humidityDisplay">Humidity: 60%</div>
+        <div class="descDisplay" id="descDisplay">Sunny</div>
+        <div class="weatherEmoji" id="weatherEmoji">☀️</div>
+    </div>
+
+    <!-- Error message (initially hidden) -->
+    <div class="errorDisplay" id="errorDisplay" style="display: none;">
+        City not found!
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
